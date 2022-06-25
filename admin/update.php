@@ -59,9 +59,9 @@ if (!empty($fileName)) {
 }
 
 // もしerr配列に何か入っている場合はエラーなので、redirect関数でindexに戻す。その際、GETでerrを渡す。
-if (count($err) > 0) {
-    redirect('post.php?error=1');
-}
+// if (count($err) > 0) {
+//     redirect('post.php?error=1');
+// }
 
 /**
  * (1)$_FILES['img']['tmp_name']... 一時的にアップロードされたファイル
@@ -90,7 +90,7 @@ if ($_FILES['img']['name']) {
                             img = :img,
                             update_time = sysdate()
                         WHERE id = :id;');
-    $stmt->bindValue(':jancode', $jancode, PDO::PARAM_LONG);
+    $stmt->bindValue(':jancode', $jancode, PDO::PARAM_STR);
     $stmt->bindValue(':title', $title, PDO::PARAM_STR);
     $stmt->bindValue(':maker', $maker, PDO::PARAM_STR);
     $stmt->bindValue(':expirydate', $expirydate, PDO::PARAM_STR);

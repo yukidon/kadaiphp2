@@ -13,9 +13,9 @@ $content  = $_POST['content'];
 $img = '';
 
 // 簡単なバリデーション処理追加。
-// if(trim($jancode) === '' || trim($title) === '' || trim($maker) === '' || trim($expirydate) === '' || trim($price) === '' || trim($quantity) === '' || trim($content) === '') {
-//     redirect('post.php?error=1');
-// }
+if(trim($jancode) === '' || trim($title) === '' || trim($maker) === '' || trim($expirydate) === '' || trim($price) === '' || trim($quantity) === '' || trim($content) === '') {
+    redirect('post.php?error=1');
+}
 
 
 // imgがある場合↓追加
@@ -37,7 +37,7 @@ $stmt = $pdo->prepare('INSERT INTO item_table(
                         )VALUES(
                             :jancode, :title, :maker, :expirydate, :price, :quantity, :content, :img, sysdate()
                         )');
-$stmt->bindValue(':jancode', $jancode, PDO::PARAM_INT);
+$stmt->bindValue(':jancode', $jancode, PDO::PARAM_STR);
 $stmt->bindValue(':title', $title, PDO::PARAM_STR);
 $stmt->bindValue(':maker', $maker, PDO::PARAM_STR);
 $stmt->bindValue(':expirydate', $expirydate, PDO::PARAM_STR);

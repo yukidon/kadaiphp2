@@ -46,6 +46,7 @@ if ($status == false) {
                             <div class="card-body">
                                 <h3><?= $content['title'] ?></h3>
                                 <h5>製造者： <?=$content['maker'] ?></h5>
+                                <h3><?= $content['price'] ?> ポイント</h3>
                                 <h4 class="mark">残り <?=$content['quantity'] ?> 個</h4>
                                 <p class="card-text"><?=nl2br($content['content'])?></p>
                                 <div class="d-flex justify-content-between align-items-center">

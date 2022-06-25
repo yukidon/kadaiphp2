@@ -36,14 +36,47 @@ if ($status == false) {
     <?php if (isset($_GET['error'])): ?>
         <p class="text-danger">入力内容を確認してください</p>
     <?php endif;?>
+
     <form method="POST" action="update.php" class="mb-3">
+
+        <div class="mb-3">
+            <label for="jancode" class="form-label">JANコード</label>
+            <input type="text" class="form-control" name="jancode" id="jancode" aria-describedby="jancode" value="<?= $row["jancode"] ?>">
+        </div>
+
         <div class="mb-3">
             <label for="title" class="form-label">商品名</label>
             <input type="text" class="form-control" name="title" id="title" aria-describedby="title" value="<?= $row["title"] ?>">
         </div>
+
+        <div class="mb-3">
+            <label for="maker" class="form-label">製造者</label>
+            <input type="text" class="form-control" name="maker" id="maker" aria-describedby="maker" value="<?=  $row["maker"] ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="expirydate" class="form-label">賞味期限</label>
+            <input type="date" class="form-control" name="expirydate" id="expirydate" aria-describedby="expirydate" value="<?= $row["expirydate"] ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">小売希望価格</label>
+            <input type="number" class="form-control" name="price" id="price" aria-describedby="price" value="<?= $row["price"] ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="quantity" class="form-label">寄附数量</label>
+            <input type="number" class="form-control" name="quantity" id="quantity" aria-describedby="quantity" value="<?= $row["quantity"] ?>">
+        </div>
+
         <div class="mb-3">
             <label for="content" class="form-label">商品紹介</label>
             <textArea type="text" class="form-control" name="content" id="content" aria-describedby="content" rows="4" cols="40"><?= $row["content"] ?></textArea>
+        </div>
+
+        <div class="mb-3">
+            <label for="`img" class="form-label">画像</label>
+            <input type="file" class="form-control" name="img">
         </div>
 
         <input type="hidden" name="id" id="id" aria-describedby="id" value="<?= $row["id"] ?>">
